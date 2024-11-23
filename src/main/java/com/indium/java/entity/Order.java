@@ -1,11 +1,11 @@
 package com.indium.java.entity;
 
-import java.util.Date;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +21,15 @@ public class Order {
 		private Long userid;
 		private Long stockId;
 		private String orderType;
+		
+	    @OneToOne(mappedBy = "orderObj", cascade = CascadeType.ALL)
+	    private Stock stock;
+		
+		
+		
+		
+		
+		
 		public Long getOrderId() {
 			return orderId;
 		}

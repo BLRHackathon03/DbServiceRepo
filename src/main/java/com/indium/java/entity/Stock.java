@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,6 +22,12 @@ public class Stock {
 	private double currentPrices;
 	private Date updatedAt;
 	private int stockNum;
+	
+	
+    @OneToOne
+    @JoinColumn(name = "orderId")
+    private Order orderObj;
+	
 	public Long getStockId() {
 		return stockId;
 	}
